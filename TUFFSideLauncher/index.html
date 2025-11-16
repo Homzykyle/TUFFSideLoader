@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TUFF Side Launcher</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    button { margin: 10px; padding: 15px 25px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>TUFF Side Launcher</h1>
+  <p>Click a button to download a game:</p>
+  <div id="game-buttons"></div>
+
+  <script>
+    fetch('launcher-files/apps.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('game-buttons');
+        data.apps.forEach(app => {
+          const btn = document.createElement('button');
+          btn.textContent = app.name;
+          btn.onclick = () => { window.location.href = app.apk_url; };
+          container.appendChild(btn);
+        });
+      })
+      .catch(err => console.error('Error loading games:', err));
+  </script>
+</body>
+</html>

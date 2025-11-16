@@ -1,0 +1,8 @@
+{
+  "apps": [
+    {
+      "name": "Zombie Arena",
+      "apk_url": "launcher-files/zombie.apk"
+    }
+  ]
+}
